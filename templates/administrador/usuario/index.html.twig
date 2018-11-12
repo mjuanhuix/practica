@@ -1,19 +1,18 @@
-{% extends 'base.html.twig' %}
+{% extends 'intranet.html.twig' %}
 
 {% block title %}Usuario index{% endblock %}
 
 {% block body %}
-    <h1>Usuario index</h1>
+    <h1>Usuarios</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
                 <th>Nombre</th>
-                <th>actions</th>
+                <th>Privilegio</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -21,11 +20,14 @@
             <tr>
                 <td>{{ usuario.id }}</td>
                 <td>{{ usuario.email }}</td>
-                <td>{{ usuario.password }}</td>
-                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.nombre }}
                 <td>
-                    <a href="{{ path('usuario_show', {'id': usuario.id}) }}">show</a>
-                    <a href="{{ path('usuario_edit', {'id': usuario.id}) }}">edit</a>
+                {% for role in usuario.roles %}
+                    {{ role }}<br>
+                {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('usuario_edit', {'id': usuario.id}) }}">Editar</a>
                 </td>
             </tr>
         {% else %}

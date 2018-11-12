@@ -1,0 +1,35 @@
+
+{% extends 'intranet.html.twig' %}
+
+{% block title %}Solicitudes{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+
+    <tr>
+        <th>Id</th>
+        <th>Fecha</th>
+        <th>Cliente</th>
+        <th>Aplicación</th>
+        <th>Estado</th>
+    </tr>
+        </thead>
+
+    {% for sol in solicitudes %}
+
+        <tr>
+            <td>{{ sol.id}}</td>
+            <td>{{ sol.fecha|date('Y-m-d') }}</td>
+            <td>{{ sol.cliente.nombre }}</td>
+            <td> {{ sol.aplicacion.id }}</td>
+            <td>{{ sol.estado}}</td>
+        </tr>
+
+    {% endfor %}
+</table>
+
+{% endblock %}
+
+

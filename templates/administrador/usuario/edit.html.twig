@@ -1,0 +1,12 @@
+{% extends 'intranet.html.twig' %}
+
+{% block title %}Edit Usuario{% endblock %}
+
+{% block body %}
+    <h1>Edit Usuario</h1>
+
+    {{ include('administrador/usuario/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    {{ include('administrador/usuario/_delete_form.html.twig') }}
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Solicitud;
+use App\Entity\AplicacionTraduccion;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -20,6 +21,20 @@ class SolicitudRepository extends ServiceEntityRepository
     }
 
 
+
+    public function verTodasSolicitudes($idioma){
+        $entityManager=$this->getEntityManager();
+        $query=$entityManager->createQuery(
+            'select s,t   
+            from App:Solicitud s, App:AplicacionTraduccion t  
+            where t.idioma=:idioma
+            and s.aplicacion=t.aplicacion 
+            '
+        )->setParameter('idioma',$idioma);
+
+        $solicitudes=$query->getResult();
+        return ($solicitudes);
+    }
 
 
 //    /**

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller;
-
 use App\Entity\Usuario;
 use App\Form\UsuarioType;
 use App\Repository\UsuarioRepository;
@@ -11,12 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-
-
-/**
- * @Route("/usuario")
- */
 class UsuarioController extends AbstractController{
 
 
@@ -46,14 +41,14 @@ class UsuarioController extends AbstractController{
         }
     }
     /**
-     * @Route("{_locale}/administrador",methods={"GET"}, name="administrador")
+     * @Route("/{_locale}/administrador",methods={"GET"}, name="administrador")
      * @IsGranted("ROLE_ADMINISTRADOR")
      */
     function panel_admin(){
         return $this->render('administrador/index.html.twig');
     }
     /**
-     * @Route("{_locale}/comercial", methods={"GET"}, name="comercial")
+     * @Route("/{_locale}/comercial", methods={"GET"}, name="comercial")
      * @IsGranted("ROLE_COMERCIAL")
      */
     function panel_comercial(){
@@ -61,7 +56,7 @@ class UsuarioController extends AbstractController{
     }
 
     /**
-     * @Route("{_locale}/jefeproyecto", methods={"GET"}, name="jefeproyecto")
+     * @Route("/{_locale}/jefeproyecto", methods={"GET"}, name="jefeproyecto")
      * @IsGranted("ROLE_JEFEPROYECTO")
      */
     function panel_jefeproyecto(){
@@ -72,21 +67,22 @@ class UsuarioController extends AbstractController{
 
         $form = $this->createForm(UsuarioType::class, $usuario);
 
-     return $this->render('login/index.html.twig', array('form'=>$form,'usuario'=>$usuario));
+         return $this->render('login/index.html.twig', array('form'=>$form,'usuario'=>$usuario));
     }
 
+
     /**
-     * @Route("/", name="usuario_index", methods="GET")
+     * @Route("/administrador/usuarios", name="usuario_index", methods="GET")
      */
     public function index(UsuarioRepository $usuarioRepository): Response
     {
-        return $this->render('usuario/index.html.twig', ['usuarios' => $usuarioRepository->findAll()]);
+        return $this->render('administrador/usuario/index.html.twig', ['usuarios' => $usuarioRepository->findAll()]);
     }
 
     /**
-     * @Route("/new", name="usuario_new", methods="GET|POST")
+     * @Route("administrador/nuevo_usuario", name="usuario_new", methods="GET|POST")
      */
-    public function new(Request $request): Response
+    public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $usuario = new Usuario();
         $form = $this->createForm(UsuarioType::class, $usuario);
@@ -94,48 +90,53 @@ class UsuarioController extends AbstractController{
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+
+            $password = $passwordEncoder->encodePassword($usuario, $usuario->getPassword());
+            $usuario->setPassword($password);
+
+
             $em->persist($usuario);
             $em->flush();
 
             return $this->redirectToRoute('usuario_index');
         }
 
-        return $this->render('usuario/nueva.html.twig', [
+        return $this->render('administrador/usuario/new.html.twig', [
             'usuario' => $usuario,
             'form' => $form->createView(),
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="usuario_show", methods="GET")
-     */
-    public function show(Usuario $usuario): Response
-    {
-        return $this->render('usuario/show.html.twig', ['usuario' => $usuario]);
-    }
 
     /**
-     * @Route("/{id}/edit", name="usuario_edit", methods="GET|POST")
+     * @Route("administrador/usuario/{id}/editar", name="usuario_edit", methods="GET|POST")
      */
-    public function edit(Request $request, Usuario $usuario): Response
+    public function edit(Request $request, Usuario $usuario, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $form = $this->createForm(UsuarioType::class, $usuario);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
+            $password = $passwordEncoder->encodePassword($usuario, $usuario->getPassword());
+            $usuario->setPassword($password);
+
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('usuario_edit', ['id' => $usuario->getId()]);
+            return $this->redirectToRoute('usuario_index', ['id' => $usuario->getId()]);
         }
 
-        return $this->render('usuario/edit.html.twig', [
+        return $this->render('administrador/usuario/edit.html.twig', [
             'usuario' => $usuario,
             'form' => $form->createView(),
         ]);
     }
 
+
     /**
-     * @Route("/{id}", name="usuario_delete", methods="DELETE")
+     * @Route("administrador/usuario/{id}/eliminar", name="usuario_delete", methods="DELETE")
      */
     public function delete(Request $request, Usuario $usuario): Response
     {
@@ -144,7 +145,6 @@ class UsuarioController extends AbstractController{
             $em->remove($usuario);
             $em->flush();
         }
-
         return $this->redirectToRoute('usuario_index');
     }
 }

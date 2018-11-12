@@ -1,0 +1,42 @@
+
+{% extends 'intranet.html.twig' %}
+
+{% block title %}Solicitud{% endblock %}
+
+{% block body %}
+
+<table class="table">
+
+
+    <tr>
+        <th>Id</th>
+        <td>{{ sol.id }}</td>
+    </tr>
+    <tr>
+        <th>Fecha</th>
+        <td>{{ sol.fecha|date('Y-m-d') }}</td>
+    </tr>
+    <tr>
+        <th>Cliente nombre</th>
+        <td>{{ sol.cliente.nombre }}</td>
+    </tr>
+    <tr>
+        <th>Cliente email</th>
+        <td>{{ sol.cliente.email }}</td>
+    </tr>
+    <tr>
+        <th>Cliente idioma</th>
+        <td>{{ sol.cliente.idioma }}</td>
+    </tr>
+
+    <tr>
+        <th>Aplicación</th>
+        <td> {{ sol.aplicacion.id }}</td>
+    </tr>
+
+
+</table>
+
+{% endblock %}
+
+

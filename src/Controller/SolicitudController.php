@@ -6,6 +6,7 @@ use App\Entity\AplicacionTraduccion;
 use App\Form\SolicitudType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\SolicitudRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -73,6 +74,19 @@ class SolicitudController extends AbstractController {
      *  @Route("/caracteristicas/{solicitud}", methods={"GET", "POST"}, name="caracteristicas")
      */
     public function caracteristicas(Request $request,Solicitud $solicitud){
+
+
+    }
+
+    /**
+     *  @Route("/comercial/solicitudes", methods={"GET", "POST"}, name="solicitud_index")
+     */
+    public function verTodas(SolicitudRepository $solicitudRepository): Response
+    {
+        $sol=$solicitudRepository->verTodasSolicitudes('es');
+
+
+        return $this->render('comercial/solicitud/index.html.twig', ['solicitudes' => $solicitudRepository->findAll()]);
 
 
     }

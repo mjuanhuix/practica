@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,7 @@ class UsuarioType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('password')
+            ->add('password', PasswordType::class)
             ->add('nombre')
         ;
     }
