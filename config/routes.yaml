@@ -1,0 +1,27 @@
+homepage:
+    path: /{_locale}
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        template: default/homepage.html.twig
+        _locale: '%locale%'
+
+logout:
+    path: /logout
+
+app_contacto:
+    path: /contacto/{_locale}
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+            template: fijos/contacto.html.twig
+app_productos:
+    path: /productos/{_locale}
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+            template: fijos/productos.html.twig
+app_compania:
+    path: /compania/{_locale}
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+    defaults:
+            template: fijos/compania.html.twig

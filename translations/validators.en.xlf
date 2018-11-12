@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="error_email">
+                <source>error_email</source>
+                <target>error_email.</target>
+            </trans-unit>
+            <trans-unit id="error_psw">
+                <source>error_psw</source>
+                <target>error_psw.</target>
+            </trans-unit>
+
+            <trans-unit id="web_nombre_no_vacio">
+                <source>web_nombre_not_vacio</source>
+                <target>Complete the field name</target>
+            </trans-unit>
+            <trans-unit id="web_mail_no_vacio">
+                <source>web_email_not_blank</source>
+                <target>Complet the field mail</target>
+            </trans-unit>
+            <trans-unit id="web_telf_no_vacio">
+                <source>web_telf_not_blank</source>
+                <target>Complet the field phone</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

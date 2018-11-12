@@ -1,0 +1,62 @@
+framework:
+    workflows:
+        estado_solicitud:
+            type: 'workflow'  # or 'state_machine'
+            marking_store:
+              type: 'single_state' # or 'single_state'
+              arguments:
+                - 'estado'
+            supports:
+              - App\Entity\Solicitud
+            places:
+              - pendiente
+              - aprovada
+              - rechazada
+            initial_place: pendiente
+            transitions:
+              aprovar:
+                from: pendiente
+                to: aprovada
+              rechazar:
+                from: pendiente
+                to: rechazada
+        estado_proyecto:
+            type: 'workflow' # or 'state_machine'
+            marking_store:
+                type: 'single_state' # or 'single_state'
+                arguments:
+                    - 'estado'
+            supports:
+                - App\Entity\Proyecto
+            places:
+                - aprobado
+                - enproceso
+                - terminado
+            initial_place: aprobado
+            transitions:
+                iniziar:
+                    from: aprobado
+                    to: enproceso
+                finalizar:
+                    from: enproceso
+                    to: terminado
+        estado_tarea:
+            type: 'workflow' # or 'state_machine'
+            marking_store:
+                type: 'single_state' # or 'single_state'
+                arguments:
+                   - 'estado'
+            supports:
+               - App\Entity\Tarea
+            places:
+               - sin_asignar
+               - asignada
+               - terminada
+            initial_place: sin_asignar
+            transitions:
+               iniziar:
+                  from: sin_asignar
+                  to: asignada
+               finalizar:
+                  from: asignada
+                  to: terminada

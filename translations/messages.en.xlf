@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="web.inicio">
+                <source>web.inicio</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="web.titulo">
+                <source>web.titulo</source>
+                <target>Montse Shop</target>
+            </trans-unit>
+            <trans-unit id="web.calculo">
+                <source>web.calculo</source>
+                <target>Calculate your budget for free and without obligation</target>
+            </trans-unit>
+            <trans-unit id="web.empezar">
+                <source>web.empezar</source>
+                <target>Start</target>
+            </trans-unit>
+            <trans-unit id="web.texto">
+                <source>web.texto</source>
+                <target>A web service is a technology that uses a set of protocols and standards that serve to exchange data between applications. Different software applications developed in different programming languages, and executed on any platform, can use web services to exchange data on computer networks such as the Internet. Interoperability is achieved through the adoption of open standards. The OASIS and W3C organizations are the committees responsible for the architecture and regulation of Web services..</target>
+            </trans-unit>
+            <trans-unit id="cliente">
+                <source>cliente</source>
+                <target>client</target>
+            </trans-unit>
+            <trans-unit id="telefono">
+                <source>telefono</source>
+                <target>telephone</target>
+            </trans-unit>
+            <trans-unit id="fecha">
+                <source>fecha</source>
+                <target>date</target>
+            </trans-unit>
+            <trans-unit id="aplicacion">
+                <source>aplicacion</source>
+                <target>aplication</target>
+            </trans-unit>
+            <trans-unit id="caracteristicas">
+                <source>caracteristicas</source>
+                <target>characteristics</target>
+            </trans-unit>
+            <trans-unit id="datos">
+                <source>datos</source>
+                <target>data</target>
+            </trans-unit>
+            <trans-unit id="solicitud">
+                <source>solicitud</source>
+                <target>request</target>
+            </trans-unit>
+            <trans-unit id="presupuesto">
+                <source>presupuesto</source>
+                <target>budget</target>
+            </trans-unit>
+            <trans-unit id="final">
+                <source>final</source>
+                <target> final</target>
+            </trans-unit>
+            <trans-unit id="entrega">
+                <source>entrega</source>
+                <target>delivery</target>
+            </trans-unit>
+            <trans-unit id="estado">
+                <source>estado</source>
+                <target>state</target>
+            </trans-unit>
+            <trans-unit id="proyecto">
+                <source>proyecto</source>
+                <target>draft</target>
+            </trans-unit>
+            <trans-unit id="tarea">
+                <source>tarea</source>
+                <target>task</target>
+            </trans-unit>
+            <trans-unit id="descripcion">
+                <source>descripcion</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="login_iniciar_session">
+                <source>login_iniciar_session</source>
+                <target>Entry</target>
+            </trans-unit>
+            <trans-unit id="login_email">
+                <source>login_email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="login_psw">
+                <source>login_psw</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="app_productos">
+                <source>app_productos</source>
+                <target>Productos</target>
+            </trans-unit>
+            <trans-unit id="app_contacto">
+                <source>app_contacto</source>
+                <target>Contacto</target>
+            </trans-unit>
+            <trans-unit id="app_compania">
+                <source>app_compania</source>
+                <target>Compañia</target>
+            </trans-unit>
+            <trans-unit id="panel_admin">
+                <source>panel_admin</source>
+                <target>Administrator panel</target>
+            </trans-unit>
+            <trans-unit id="panel_comercial">
+                <source>panel_comercial</source>
+                <target>Commercial panel</target>
+            </trans-unit>
+            <trans-unit id="panel_jefeproyecto">
+                <source>panel_jefeproyecto</source>
+                <target>Project manager panel</target>
+            </trans-unit>
+            <trans-unit id="web_title_compania">
+                <source>web_title_compania</source>
+                <target>Company</target>
+            </trans-unit>
+            <trans-unit id="web_title_productos">
+                <source>web_title_productos</source>
+                <target>Products</target>
+            </trans-unit>
+            <trans-unit id="web_title_contacto">
+                <source>web_title_contacto</source>
+                <target>Contact</target>
+            </trans-unit>
+            <trans-unit id="web_text_compania">
+                <source>web_texto_compania</source>
+                <target>Texto en español</target>
+            </trans-unit>
+            <trans-unit id="web_text_productos">
+                <source>web_text_productos</source>
+                <target>Texto en español</target>
+            </trans-unit>
+            <trans-unit id="web_text_contacto">
+                <source>web_text_contacto</source>
+                <target>Texto en español</target>
+            </trans-unit>
+
+
+
+            <trans-unit id="web_nombre">
+                <source>web_nombre</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="web_email">
+                <source>web_email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="web_telefono">
+                <source>web_telefono</source>
+                <target>Telephone</target>
+            </trans-unit>
+            <trans-unit id="web_nuevo_cliente">
+                <source>web_nuevo_cliente</source>
+                <target>New client</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nova solicitud{% endblock %}
+
+{% block body %}
+<h1>Create nova solicitud</h1>
+    {{ form_start(form) }}
+
+
+
+        <div class="panel-body">
+            <select name="aplicacionTraduccion" id="aplicacionTraduccion" class="form-control">
+                {% for aplicacion in aplicaciones %}
+                    <option value="{{ aplicacion.id }}">
+                        {{ aplicacion.nombre }}
+                    </option>
+                {% endfor %}
+
+            </select>
+
+            <input type="submit" name="siguiente" value="siguiente" class="btn btn-success">
+
+
+        </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
